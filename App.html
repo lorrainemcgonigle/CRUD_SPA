@@ -1,0 +1,53 @@
+<!--Credit to w3 schools for the Angularjs tutorials-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script type="text/javascript" src="myApp.js"></script>
+		<script type="text/javascript" src="customersCtrl.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="customersCtrl">
+			<div>
+			<button ng-click="getCustomers()">Get Customer Details</button><br/>
+			<br/>
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>LAST NAME</th>
+					<th>FIRST NAME</th>
+					<th>COUNTRY</th>
+					<th>ADDRESS</th>
+				</tr>
+				<tr ng-repeat="x in names | orderBy : 'lastname'">
+					<td>{{ x.id }}</td>
+					<td>{{ x.lastname}}</td>
+	    			<td>{{ x.firstname }}</td>
+	    			<td>{{ x.country }}</td>
+	    			<td>{{ x. address }}</td>
+	  			</tr>
+			</table>
+			</div>
+			<div>
+			First Name:<input type="text" ng-model="firstname"><br/>
+			Last Name:<input type="text" ng-model="lastname"><br/>
+			Country:<input type="text" ng-model="country"><br/>
+			Address:<input type="text" ng-model="address"><br/>
+			<button ng-click="create()">Enter New Details</button><br/>
+		</div>
+		<div>
+			ID:<input type="text" ng-model="id"><br/>
+			First Name:<input type="text" ng-model="firstname"><br/>
+			Last Name:<input type="text" ng-model="lastname"><br/>
+			Country:<input type="text" ng-model="country"><br/>
+			Address:<input type="text" ng-model="address"><br/>
+			<button ng-click="update()">Enter Updated Details</button><br/>
+		</div>
+		<div>
+			ID:<input type="text" ng-model="id"><br/>
+			<button ng-click="delete()">Delete Record</button><br/>
+		</div>
+		</div>
+	</body>
+</html>
